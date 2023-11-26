@@ -29,7 +29,7 @@ Ensure you have the following prerequisites installed and set up:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/signature-pad.git
+   git clone https://github.com/XAINJATT/signature-pad.git
    ```
 
 2. **Include the Script**
@@ -49,7 +49,9 @@ Ensure you have the following prerequisites installed and set up:
 2. **JavaScript Initialization**
    Initialize the Signature Pad in your JavaScript file:
    ```javascript
-   const signaturePad = new SignaturePad(document.getElementById('signature-pad'));
+   $(document).ready(function() {
+    initSignaturePad();
+   });
    ```
 
 ### Configuration
@@ -58,7 +60,13 @@ Customize the Signature Pad by adjusting its settings in the `signData` object:
 
 ```javascript
 const signData = {
-    // ... other settings ...
+    clearBtn: $("#clear"), //Button to clear signatures
+    saveBtn: $("#save"), // Button to clear signatures
+    canvas: $("#signature-pad"), // Canvas Element ID
+    returnUrl: $("#signature_value"), // Input where returned URL will be Stored
+    ajaxUrl: "/saveSignature", // Example URL
+    customer_id: $("#customer_id").val(), // Customer Whose Signatures ARE
+    csrfToken: $("#_token").val(), //CSRF TOKEN for
     strokeColor: 'blue', // Set your desired stroke color
     strokeWidth: 3,      // Set your desired stroke width
 };
